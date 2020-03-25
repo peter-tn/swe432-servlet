@@ -18,48 +18,48 @@ import javax.servlet.http.HttpServletResponse;
 public class TwoButtonsServlet extends HttpServlet
 {
 
-   // Button labels
-   static String OperationAdd = "Add";
-   static String OperationSub = "Subtract";
+   // // Button labels
+   // static String OperationAdd = "Add";
+   // static String OperationSub = "Subtract";
 
-   // Other strings.
-   static String Style ="https://www.cs.gmu.edu/~offutt/classes/432/432-style.css";
+   // // Other strings.
+   // static String Style ="https://www.cs.gmu.edu/~offutt/classes/432/432-style.css";
 
-   /** *****************************************************
-    *  Overrides HttpServlet's doPost().
-    *  Converts the values in the form, performs the operation
-    *  indicated by the submit button, and sends the results
-    *  back to the client.
-   ********************************************************* */
-   public void doPost (HttpServletRequest request, HttpServletResponse response)
-      throws ServletException, IOException
-   {
-      Float rslt   = new Float(0.0);
-      Float lhsVal = new Float(0.0);
-      Float rhsVal = new Float(0.0);
-      String operation = request.getParameter("Operation");
-      String lhsStr = request.getParameter("LHS");
-      String rhsStr = request.getParameter("RHS");
-      if ((lhsStr != null) && (lhsStr.length() > 0))
-         lhsVal = new Float(lhsStr);
-      if ((rhsStr != null) && (rhsStr.length() > 0))
-         rhsVal = new Float(rhsStr);
+   // /** *****************************************************
+   //  *  Overrides HttpServlet's doPost().
+   //  *  Converts the values in the form, performs the operation
+   //  *  indicated by the submit button, and sends the results
+   //  *  back to the client.
+   // ********************************************************* */
+   // public void doPost (HttpServletRequest request, HttpServletResponse response)
+   //    throws ServletException, IOException
+   // {
+   //    Float rslt   = new Float(0.0);
+   //    Float lhsVal = new Float(0.0);
+   //    Float rhsVal = new Float(0.0);
+   //    String operation = request.getParameter("Operation");
+   //    String lhsStr = request.getParameter("LHS");
+   //    String rhsStr = request.getParameter("RHS");
+   //    if ((lhsStr != null) && (lhsStr.length() > 0))
+   //       lhsVal = new Float(lhsStr);
+   //    if ((rhsStr != null) && (rhsStr.length() > 0))
+   //       rhsVal = new Float(rhsStr);
 
-      if (operation.equals(OperationAdd))
-      {
-         rslt = new Float(lhsVal.floatValue() + rhsVal.floatValue());
-      }
-      else if (operation.equals(OperationSub))
-      {
-         rslt = new Float(lhsVal.floatValue() - rhsVal.floatValue());
-      }
+   //    if (operation.equals(OperationAdd))
+   //    {
+   //       rslt = new Float(lhsVal.floatValue() + rhsVal.floatValue());
+   //    }
+   //    else if (operation.equals(OperationSub))
+   //    {
+   //       rslt = new Float(lhsVal.floatValue() - rhsVal.floatValue());
+   //    }
 
-      response.setContentType("text/html");
-      PrintWriter out = response.getWriter();
-      PrintHead(out);
-      PrintBody(out, lhsStr, rhsStr, rslt.toString());
-      PrintTail(out);
-   }  // End doPost
+   //    response.setContentType("text/html");
+   //    PrintWriter out = response.getWriter();
+   //    PrintHead(out);
+   //    PrintBody(out, lhsStr, rhsStr, rslt.toString());
+   //    PrintTail(out);
+   // }  // End doPost
 
    /** *****************************************************
     *  Overrides HttpServlet's doGet().
