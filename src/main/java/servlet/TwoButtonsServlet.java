@@ -23,6 +23,7 @@ public class TwoButtonsServlet extends HttpServlet
    // Button labels
    static String OperationAdd = "Add";
    static String OperationSub = "Subtract";
+   static String OperationMulti = "Multiply";
 
    // Other strings.
    static String Style ="https://www.cs.gmu.edu/~offutt/classes/432/432-style.css";
@@ -54,6 +55,10 @@ public class TwoButtonsServlet extends HttpServlet
       else if (operation.equals(OperationSub))
       {
          rslt = new Float(lhsVal.floatValue() - rhsVal.floatValue());
+      }
+      else if (operation.equals(OperationMulti))
+      {
+         rslt = new Float(lhsVal.floatValue() * rhsVal.floatValue());
       }
 
       response.setContentType("text/html");
@@ -124,6 +129,7 @@ public class TwoButtonsServlet extends HttpServlet
       out.println(" <br>");
       out.println(" <input type=\"submit\" value=\"" + OperationAdd + "\" name=\"Operation\">");
       out.println(" <input type=\"submit\" value=\"" + OperationSub + "\" name=\"Operation\">");
+      out.println(" <input type=\"submit\" value=\"" + OperationMulti + "\" name=\"Operation\">");
       out.println(" <input type=\"reset\" value=\"Reset\" name=\"reset\">");
       out.println("</form>");
       out.println("");
