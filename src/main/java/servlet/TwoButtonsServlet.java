@@ -17,67 +17,132 @@ import javax.servlet.http.HttpServletResponse;
 
 public class TwoButtonsServlet extends HttpServlet
 {
-  @Override
-   protected void doGet  (HttpServletRequest req, HttpServletResponse res)
-          throws ServletException, IOException
+
+   // Button labels
+   static String OperationAdd = "Add";
+   static String OperationSub = "Subtract";
+
+   // Other strings.
+   static String Style ="https://www.cs.gmu.edu/~offutt/classes/432/432-style.css";
+
+   /** *****************************************************
+    *  Overrides HttpServlet's doPost().
+    *  Converts the values in the form, performs the operation
+    *  indicated by the submit button, and sends the results
+    *  back to the client.
+   ********************************************************* */
+   public void doPost (HttpServletRequest request, HttpServletResponse response)
+      throws ServletException, IOException
    {
+      Float rslt   = new Float(0.0);
+      Float lhsVal = new Float(0.0);
+      Float rhsVal = new Float(0.0);
+      String operation = request.getParameter("Operation");
+      String lhsStr = request.getParameter("LHS");
+      String rhsStr = request.getParameter("RHS");
+      if ((lhsStr != null) && (lhsStr.length() > 0))
+         lhsVal = new Float(lhsStr);
+      if ((rhsStr != null) && (rhsStr.length() > 0))
+         rhsVal = new Float(rhsStr);
 
-        res.setContentType ("text/html");
-        PrintWriter out = res.getWriter ();
+      if (operation.equals(OperationAdd))
+      {
+         rslt = new Float(lhsVal.floatValue() + rhsVal.floatValue());
+      }
+      else if (operation.equals(OperationSub))
+      {
+         rslt = new Float(lhsVal.floatValue() - rhsVal.floatValue());
+      }
 
-        out.println ("<HTML>");
-        out.println ("<HEAD>");
-        out.println ("<TITLE>A simple servlet program</TITLE>");
-        out.println ("</HEAD>");
+      response.setContentType("text/html");
+      PrintWriter out = response.getWriter();
+      PrintHead(out);
+      PrintBody(out, lhsStr, rhsStr, rslt.toString());
+      PrintTail(out);
+   }  // End doPost
 
-        out.println ("<BODY>");
-        out.println ("<CENTER>");
+   /** *****************************************************
+    *  Overrides HttpServlet's doGet().
+    *  Prints an HTML page with a blank form.
+   ********************************************************* */
+   public void doGet (HttpServletRequest request, HttpServletResponse response)
+         throws ServletException, IOException
+   {
+      response.setContentType("text/html");
+      PrintWriter out = response.getWriter();
+      PrintHead(out);
+      PrintBody(out);
+      PrintTail(out);
+   } // End doGet
 
-        out.println (" <B>Hello!</B><BR> <!--  English -->");
-        out.println (" <B>Alo!</B><BR> <!--  Portuguese -->");
-        out.println (" <B>Anyong haseyo!</B><BR> <!--  Korean -->");
-        out.println (" <B>Apa Kabar!</B><BR> <!--  Indonesian -->");
-        out.println (" <B>Ave!</B><BR> <!--  Latin -->");
-        out.println (" <B>Bon jour!</B><BR> <!--  French -->");
-        out.println (" <B>Ciao!</B><BR> <!--  Italian -->");
-        out.println (" <B>Hajur!</B><BR> <!--  Nepali (India) -->");
-        out.println (" <B>Hallo!</B><BR> <!--  German -->");
-        out.println (" <B>Hej!</B><BR> <!--  Swedish -->");
-        out.println (" <B>Hei!</B><BR> <!--  Norwegian -->");
-        out.println (" <B>Hola!</B><BR> <!--  Spanish -->");
-        out.println (" <B>Kaise ho!</B><BR> <!--  Hindi (depending on who you believe) -->");
-        out.println (" <B>Kem Chho, Kem Che!</B><BR> <!--  Gujurati (India) -->");
-        out.println (" <B>Ki Khobor!</B><BR> <!--  Bengali -->");
-        out.println (" <B>Marhaba!</B><BR> <!--  Arabic -->");
-        out.println (" <B>Moin Moin!</B><BR> <!--  German, Hamburg -->");
-        out.println (" <B>Moni!</B><BR> <!--  Chichewa -->");
-        out.println (" <B>Namaskaram!</B><BR> <!--  Telugu (India) -->");
-        out.println (" <B>Namskar!</B><BR> <!--  Hindi -->");
-        // Why do I keep getting different words in Hindi?
-        // out.println (" <B>Namaste!</B><BR> <!--  Hindi -->");
-        // out.println (" <B>Namastar!</B><BR> <!--  Hindi -->");
-        out.println (" <B>Konnichiwa!</B><BR> <!--  Japanese -->");
-        out.println (" <B>Manh gioi!</B><BR> <!--  Vietnamese -->");
-        out.println (" <B>Marhabai!</B><BR> <!--  Arab -->");
-        out.println (" <B>Ni hao!</B><BR> <!--  Chinese -->");
-        out.println (" <B>Shalom!</B><BR> <!--  Hebrew -->");
-        out.println (" <B>Sallam!</B><BR> <!--  Persian -->");
-        out.println (" <B>Sat-Sri-Akal!</B><BR> <!--  Punjabi (India) -->");
-        out.println (" <B>Strasvedte!</B><BR> <!--  Russian -->");
-        out.println (" <B>Yah-shimu-siz!</B><BR> <!--  Uighur -->");
-        out.println (" <B>Zhao  Shen!</B><BR> <!-- Cantonese -->");
+   /** *****************************************************
+    *  Prints the <head> of the HTML page, no <body>.
+   ********************************************************* */
+   private void PrintHead (PrintWriter out)
+   {
+      out.println("<html>");
+      out.println("");
 
-        out.println ("<P>");
-        out.println ("For a longer listing of \"hellos\" to the world, go see");
-        out.println ("<A HREF=\"http://www.ipl.org/youth/hello/\">http://www.ipl.org/youth/hello/</A>");
+      out.println("<head>");
+      out.println("<title>Two buttons example</title>");
+      out.println(" <link rel=\"stylesheet\" type=\"text/css\" href=\"" + Style + "\">");
+      out.println("</head>");
+      out.println("");
+   } // End PrintHead
 
-        out.println ("</CENTER>");
-        out.println ("</BODY>");
+   /** *****************************************************
+    *  Prints the <BODY> of the HTML page with the form data
+    *  values from the parameters.
+   ********************************************************* */
+   private void PrintBody (PrintWriter out, String lhs, String rhs, String rslt)
+   {
+      out.println("<body>");
+      out.println("<p>");
+      out.println("A simple example that demonstrates how to operate with");
+      out.println("multiple submit buttons.");
+      out.println("</p>");
+      out.print  ("<form method=\"post\"");
+      out.println(" action=\"https://" + Domain + Path + Servlet + "\">");
+      out.println("");
+      out.println(" <table>");
+      out.println("  <tr>");
+      out.println("   <td>First value:");
+      out.println("   <td><input type=\"text\" name=\"LHS\" value=\"" + lhs + "\" size=5>");
+      out.println("  </tr>");
+      out.println("  <tr>");
+      out.println("   <td>Second value:");
+      out.println("   <td><input type=\"text\" name=\"RHS\" value=\"" + rhs + "\" size=5>");
+      out.println("  </tr>");
+      out.println("  <tr>");
+      out.println("   <td>Result:");
+      out.println("   <td><input type=\"text\" name=\"RHS\" value=\"" + rslt + "\" size=6>");
+      out.println("  </tr>");
+      out.println(" </table>");
+      out.println(" <br>");
+      out.println(" <br>");
+      out.println(" <input type=\"submit\" value=\"" + OperationAdd + "\" name=\"Operation\">");
+      out.println(" <input type=\"submit\" value=\"" + OperationSub + "\" name=\"Operation\">");
+      out.println(" <input type=\"reset\" value=\"Reset\" name=\"reset\">");
+      out.println("</form>");
+      out.println("");
+      out.println("</body>");
+   } // End PrintBody
 
-        out.println ("</HTML>");
-        out.flush();
+   /** *****************************************************
+    *  Overloads PrintBody (out,lhs,rhs,rslt) to print a page
+    *  with blanks in the form fields.
+   ********************************************************* */
+   private void PrintBody (PrintWriter out)
+   {
+      PrintBody(out, "", "", "");
+   }
 
-        out.close ();
-
-    }
+   /** *****************************************************
+    *  Prints the bottom of the HTML page.
+   ********************************************************* */
+   private void PrintTail (PrintWriter out)
+   {
+      out.println("");
+      out.println("</html>");
+   } // End PrintTail
 }
