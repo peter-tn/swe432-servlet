@@ -17,13 +17,15 @@ import javax.servlet.http.HttpServletResponse;
 
 public class TwoButtonsServlet extends HttpServlet
 {
+   // Location of servlet.
+   static String Path = "swe432-week8.herokuapp.com/twoButtons";
 
    // // Button labels
-   // static String OperationAdd = "Add";
-   // static String OperationSub = "Subtract";
+   static String OperationAdd = "Add";
+   static String OperationSub = "Subtract";
 
    // // Other strings.
-   // static String Style ="https://www.cs.gmu.edu/~offutt/classes/432/432-style.css";
+   static String Style ="https://www.cs.gmu.edu/~offutt/classes/432/432-style.css";
 
    // /** *****************************************************
    //  *  Overrides HttpServlet's doPost().
@@ -102,7 +104,7 @@ public class TwoButtonsServlet extends HttpServlet
       out.println("multiple submit buttons.");
       out.println("</p>");
       out.print  ("<form method=\"post\"");
-      out.println(" action=\"https://" + Domain + Path + Servlet + "\">");
+      out.println(" action=\"https://" + Path + "\">");
       out.println("");
       out.println(" <table>");
       out.println("  <tr>");
