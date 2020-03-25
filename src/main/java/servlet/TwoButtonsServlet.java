@@ -12,10 +12,10 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet(
         name = "MyServlet",
-        urlPatterns = {"/hello"}
+        urlPatterns = {"/twoButtons"}
     )
 
-public class HelloServlet extends HttpServlet
+public class TwoButtonsServlet extends HttpServlet
 {
   @Override
    protected void doGet  (HttpServletRequest req, HttpServletResponse res)
