@@ -104,6 +104,12 @@ public class TwoButtonsServlet extends HttpServlet
    private void PrintBody (PrintWriter out, String lhs, String rhs, String rslt)
    {
       out.println("<body>");
+      out.println("<h1>");
+      out.println("In-class participation assignment");
+      out.println("</h1>");
+      out.println("<h5>");
+      out.println("By Peter Nguyen!");
+      out.println("</h5>");
       out.println("<p>");
       out.println("A simple example that demonstrates how to operate with");
       out.println("multiple submit buttons.");
