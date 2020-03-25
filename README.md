@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Using Heroku to deploy servlets and JSPs
 
 This tutorial will show you how to deploy and develop a Heroku app that runs servlets and JSPs.
@@ -176,3 +177,6 @@ https://kbroman.org/github_tutorial/pages/init.html
 
 
 
+=======
+# swe432-inclass-week8
+>>>>>>> 49f03b1d4b927f07b171c35f621a186208bb8d0f
