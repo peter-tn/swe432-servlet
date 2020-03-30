@@ -117,6 +117,9 @@ public class RatingServlet extends HttpServlet
 
       out.print  ("<form style='margin-left: 10px' method=\"post\" action=\"https://" + Path + "\" id='form' name='form'>");
       out.println("<div class='row'>");
+      out.println("<div class='column'>");
+      out.println("<br> <img src='satoshi_image.jpeg' style='max-height: 200px;'> <div>How does this picture look?</div>");
+      out.println("</div>");
       out.println("</div>");
       out.println("</form>");
 
