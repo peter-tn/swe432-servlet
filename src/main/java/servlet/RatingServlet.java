@@ -175,6 +175,15 @@ public class RatingServlet extends HttpServlet
       out.println("</div>");
 
       out.println("</div>");
+
+      out.println("<div class='row' style='margin-top: 10px;'>");
+      out.println("<div class='column' style='width: 50%;'>");
+      out.println("<div>We would love to know the reasoning for each picture rating!</div>");
+      out.println("<textarea rows='7' cols='150' form='form' id ='userExplanation' name='userExplanation' onclick='resetText()'></textarea>");
+      out.println("<input type='submit' value='Submit' style='margin-top: 10px;'>");
+      out.println("</div>");
+      out.println("</div>");
+
       out.println("</form>");
 
       out.println("</body>");
