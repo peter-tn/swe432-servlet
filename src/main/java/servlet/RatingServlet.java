@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
 public class RatingServlet extends HttpServlet
 {
    // Location of servlet.
-   static String Path = "swe432-week8.herokuapp.com/twoButtons";
+   static String Path = "swe432-week8.herokuapp.com/rating";
 
    // Button labels
    static String OperationAdd = "Add";
@@ -109,42 +109,17 @@ public class RatingServlet extends HttpServlet
    private void PrintBody (PrintWriter out, String lhs, String rhs, String rslt)
    {
       out.println("<body>");
+
       out.println("<header>");
       out.println("<h1 style='text-align:center;''>Please Rate Our Pictures!:)</h1>");
       out.println("<h4 style='text-align:center;'>SWE 432 Peter Nguyen</h4>");
       out.println("</header>");
-      out.println("<h5>");
-      out.println("By Peter Nguyen!");
-      out.println("</h5>");
-      out.println("<p>");
-      out.println("A simple example that demonstrates how to operate with");
-      out.println("multiple submit buttons.");
-      out.println("</p>");
-      out.print  ("<form method=\"post\"");
-      out.println(" action=\"https://" + Path + "\">");
-      out.println("");
-      out.println(" <table>");
-      out.println("  <tr>");
-      out.println("   <td>First value:");
-      out.println("   <td><input type=\"text\" name=\"LHS\" value=\"" + lhs + "\" size=5>");
-      out.println("  </tr>");
-      out.println("  <tr>");
-      out.println("   <td>Second value:");
-      out.println("   <td><input type=\"text\" name=\"RHS\" value=\"" + rhs + "\" size=5>");
-      out.println("  </tr>");
-      out.println("  <tr>");
-      out.println("   <td>Result:");
-      out.println("   <td><input type=\"text\" name=\"RHS\" value=\"" + rslt + "\" size=6>");
-      out.println("  </tr>");
-      out.println(" </table>");
-      out.println(" <br>");
-      out.println(" <br>");
-      out.println(" <input type=\"submit\" value=\"" + OperationAdd + "\" name=\"Operation\">");
-      out.println(" <input type=\"submit\" value=\"" + OperationSub + "\" name=\"Operation\">");
-      out.println(" <input type=\"submit\" value=\"" + OperationMulti + "\" name=\"Operation\">");
-      out.println(" <input type=\"reset\" value=\"Reset\" name=\"reset\">");
+
+      out.print  ("<form style='margin-left: 10px' method=\"post\" action=\"https://" + Path + "\" id='form' name='form'>");
+      out.println("<div class='row'>");
+      out.println("</div>");
       out.println("</form>");
-      out.println("");
+
       out.println("</body>");
    } // End PrintBody
 
