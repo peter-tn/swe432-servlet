@@ -123,7 +123,7 @@ public class RatingServlet extends HttpServlet
       out.println("<div class='row'>");
 
       out.println("<div class='column'>");
-      out.println("<br> <img src='https://i.ytimg.com/vi/PB5FosTwM8s/maxresdefault.jpg' style='max-height: 200px;'> <div>How does this picture look?</div>");
+      out.println("<br> <img src='https://i.redd.it/at0lclbhxewz.jpg' style='max-height: 200px;'> <div>How does this picture look?</div>");
       out.println("<input type='radio' name='1st picture rating' id='eh' value='eh'/>");
       out.println("<label for='eh'>eh</label><br>");
       out.println("<input type='radio' name='1st picture rating' id='ok' value='ok'/>");
@@ -151,7 +151,7 @@ public class RatingServlet extends HttpServlet
       out.println("</div>");
 
       out.println("<div class='column'>");
-      out.println("<br> <img src='https://3.bp.blogspot.com/-571k4ht4n1g/U8gTqy7TBlI/AAAAAAABBBM/lXUEjqH2j94/s1600/cute-red-panda-14.jpg' style='max-height: 200px;'> <div>How does this picture look?</div>");
+      out.println("<br> <img src='https://1funny.com/wp-content/uploads/2011/06/laughing-red-panda.jpg' style='max-height: 200px;'> <div>How does this picture look?</div>");
       out.println("<input type='radio' name='1st picture rating' id='eh' value='eh'/>");
       out.println("<label for='eh'>eh</label><br>");
       out.println("<input type='radio' name='1st picture rating' id='ok' value='ok'/>");
