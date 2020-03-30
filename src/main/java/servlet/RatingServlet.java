@@ -134,14 +134,44 @@ public class RatingServlet extends HttpServlet
 
       out.println("<div class='column'>");
       out.println("<br> <img src='https://snworksceo.imgix.net/ohi/72fe00d0-d563-48cd-b05a-957bec8207e6.sized-1000x1000.jpeg?w=800&h=600' style='max-height: 200px;'> <div>How does this picture look?</div>");
+      out.println("<input type='radio' name='1st picture rating' id='eh' value='eh'/>");
+      out.println("<label for='eh'>eh</label><br>");
+      out.println("<input type='radio' name='1st picture rating' id='ok' value='ok'/>");
+      out.println("<label for='ok'>ok</label><br>");
+      out.println("<input type='radio' name='1st picture rating' id='cute' value='cute'/>");
+      out.println("<label for='cute'>cute</label><br>");
+      out.println("<input type='radio' name='1st picture rating' id='adorable' value='adorable'/>");
+      out.println("<label for='adorable'>adorable sort of cute </label><br>");
+      out.println("<input type='radio' name='1st picture rating' id='please buy me one cute' value='please buy me one cute'/>");
+      out.println("<label for='please buy me one cute'>\"please buy me one\" sort of cute</label><br>");
       out.println("</div>");
 
       out.println("<div class='column'>");
       out.println("<br> <img src='https://3.bp.blogspot.com/-571k4ht4n1g/U8gTqy7TBlI/AAAAAAABBBM/lXUEjqH2j94/s1600/cute-red-panda-14.jpg' style='max-height: 200px;'> <div>How does this picture look?</div>");
+      out.println("<input type='radio' name='1st picture rating' id='eh' value='eh'/>");
+      out.println("<label for='eh'>eh</label><br>");
+      out.println("<input type='radio' name='1st picture rating' id='ok' value='ok'/>");
+      out.println("<label for='ok'>ok</label><br>");
+      out.println("<input type='radio' name='1st picture rating' id='cute' value='cute'/>");
+      out.println("<label for='cute'>cute</label><br>");
+      out.println("<input type='radio' name='1st picture rating' id='adorable' value='adorable'/>");
+      out.println("<label for='adorable'>adorable sort of cute </label><br>");
+      out.println("<input type='radio' name='1st picture rating' id='please buy me one cute' value='please buy me one cute'/>");
+      out.println("<label for='please buy me one cute'>\"please buy me one\" sort of cute</label><br>");
       out.println("</div>");
 
       out.println("<div class='column'>");
       out.println("<br> <img src='https://blogs.cdc.gov/publichealthmatters/files/2016/01/penguin-dancing.jpg' style='max-height: 200px;'> <div>How does this picture look?</div>");
+      out.println("<input type='radio' name='1st picture rating' id='eh' value='eh'/>");
+      out.println("<label for='eh'>eh</label><br>");
+      out.println("<input type='radio' name='1st picture rating' id='ok' value='ok'/>");
+      out.println("<label for='ok'>ok</label><br>");
+      out.println("<input type='radio' name='1st picture rating' id='cute' value='cute'/>");
+      out.println("<label for='cute'>cute</label><br>");
+      out.println("<input type='radio' name='1st picture rating' id='adorable' value='adorable'/>");
+      out.println("<label for='adorable'>adorable sort of cute </label><br>");
+      out.println("<input type='radio' name='1st picture rating' id='please buy me one cute' value='please buy me one cute'/>");
+      out.println("<label for='please buy me one cute'>\"please buy me one\" sort of cute</label><br>");
       out.println("</div>");
 
       out.println("</div>");
