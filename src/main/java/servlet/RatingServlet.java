@@ -91,8 +91,8 @@ public class RatingServlet extends HttpServlet
       out.println("");
 
       out.println("<head>");
-      out.println("<title>HTML Assignment 5 ʕ•ᴥ•ʔ</title>");
-      out.println(" <link rel=\"stylesheet\" type=\"text/css\" href=\"" + Style + "\">");
+      out.println("<title>HTML Assignment 6</title>");
+      out.println("        <style>        * {            box-sizing: border-box;        }        /*header style*/        header {            background-color: #FFB6C1;            padding: 10px;            text-align: center;            font-size: 25px;            color: white;        }        .column {        float: left;        width: 25%;        }        /* Clear floats after the columns */        .row:after {        content: "";        display: table;        clear: both;        }        </style>");
       out.println("</head>");
       out.println("");
    } // End PrintHead
