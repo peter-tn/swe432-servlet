@@ -120,6 +120,16 @@ public class RatingServlet extends HttpServlet
 
       out.println("<div class='column'>");
       out.println("<br> <img src='https://i.ytimg.com/vi/PB5FosTwM8s/maxresdefault.jpg' style='max-height: 200px;'> <div>How does this picture look?</div>");
+      out.println("<input type='radio' name='1st picture rating' id='eh' value='eh'/>");
+      out.println("<label for='eh'>eh</label><br>");
+      out.println("<input type='radio' name='1st picture rating' id='ok' value='ok'/>");
+      out.println("<label for='ok'>ok</label><br>");
+      out.println("<input type='radio' name='1st picture rating' id='cute' value='cute'/>");
+      out.println("<label for='cute'>cute</label><br>");
+      out.println("<input type='radio' name='1st picture rating' id='adorable' value='adorable'/>");
+      out.println("<label for='adorable'>adorable sort of cute </label><br>");
+      out.println("<input type='radio' name='1st picture rating' id='please buy me one cute' value='please buy me one cute'/>");
+      out.println("<label for='please buy me one cute'>\"please buy me one\" sort of cute</label><br>");
       out.println("</div>");
 
       out.println("<div class='column'>");
