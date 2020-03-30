@@ -37,35 +37,15 @@ public class RatingServlet extends HttpServlet
    public void doPost (HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException
    {
-      Float rslt   = new Float(0.0);
-      Float lhsVal = new Float(0.0);
-      Float rhsVal = new Float(0.0);
-      String operation = request.getParameter("Operation");
-      String lhsStr = request.getParameter("LHS");
-      String rhsStr = request.getParameter("RHS");
-      if ((lhsStr != null) && (lhsStr.length() > 0))
-         lhsVal = new Float(lhsStr);
-      if ((rhsStr != null) && (rhsStr.length() > 0))
-         rhsVal = new Float(rhsStr);
-
-      if (operation.equals(OperationAdd))
-      {
-         rslt = new Float(lhsVal.floatValue() + rhsVal.floatValue());
-      }
-      else if (operation.equals(OperationSub))
-      {
-         rslt = new Float(lhsVal.floatValue() - rhsVal.floatValue());
-      }
-      else if (operation.equals(OperationMulti))
-      {
-         rslt = new Float(lhsVal.floatValue() * rhsVal.floatValue());
-      }
-
       response.setContentType("text/html");
       PrintWriter out = response.getWriter();
-      PrintHead(out);
-      PrintBody(out, lhsStr, rhsStr, rslt.toString());
-      PrintTail(out);
+
+      out.println("<html>");
+      out.println("<title>HTML Assignment 6</title>");
+      out.println("<header>");
+      out.println("<h1 style='text-align:center;''>Results</h1>");
+      out.println("</header>");
+      out.println("</html>");
    }  // End doPost
 
    /** *****************************************************
@@ -119,7 +99,7 @@ public class RatingServlet extends HttpServlet
       out.println("<h4 style='text-align:center;'>SWE 432 Peter Nguyen</h4>");
       out.println("</header>");
 
-      out.print  ("<form style='margin-left: 10px' method=\"post\" action=\"https://" + Path + "\" id='form' name='form'>");
+      out.print  ("<form style='margin-left: 10px' method=\"post\" action=\"https://" + Path + "\" id='form' name='form'> onsubmit='return (checkForm())'");
       out.println("<div class='row'>");
 
       out.println("<div class='column'>");
