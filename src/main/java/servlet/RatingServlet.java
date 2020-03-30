@@ -11,8 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @WebServlet(
-        name = "MyServlet2",
-        urlPatterns = {"/twoButtons"}
+        name = "MyServlet3",
+        urlPatterns = {"/rating"}
     )
 
 public class RatingServlet extends HttpServlet
@@ -91,7 +91,7 @@ public class RatingServlet extends HttpServlet
       out.println("");
 
       out.println("<head>");
-      out.println("<title>Two buttons example</title>");
+      out.println("<title>HTML Assignment 5 ʕ•ᴥ•ʔ</title>");
       out.println(" <link rel=\"stylesheet\" type=\"text/css\" href=\"" + Style + "\">");
       out.println("</head>");
       out.println("");
