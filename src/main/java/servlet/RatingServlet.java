@@ -111,7 +111,7 @@ public class RatingServlet extends HttpServlet
       out.println("<body>");
 
       out.println("<header>");
-      out.println("<h1 style='text-align:center;''>Please Rate Our Pictures!:)</h1>");
+      out.println("<h1 style='text-align:center;''>Please rate the cutest animal!:)</h1>");
       out.println("<h4 style='text-align:center;'>SWE 432 Peter Nguyen</h4>");
       out.println("</header>");
 
