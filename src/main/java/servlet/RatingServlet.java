@@ -90,7 +90,7 @@ public class RatingServlet extends HttpServlet
       out.println("<html>");
       out.println("");
 
-      // out.println();
+      // out.println("");
       out.println("<head>");
       out.println("<title>HTML Assignment 6</title>");
       out.println("<style>");
@@ -98,6 +98,10 @@ public class RatingServlet extends HttpServlet
       out.println("header { background-color: #FFB6C1; padding: 10px; text-align: center; font-size: 25px; color: white; } .column { float: left; width: 25%; }");
       out.println(".row:after { content: ''; display: table; clear: both; }");
       out.println("</style>");
+      out.println("<script>");
+      out.println("function checkForm() { if( document.form['1st picture rating'].value == '' || document.form['2nd picture rating'].value == '' || document.form['3rd picture rating'].value == '' || document.form['4th picture rating'].value == '') { alert('Please give all pictures a rating :)'); return false; } if(document.form.userExplanation.value == '') { document.getElementById('userExplanation').style.borderColor='red'; document.getElementById('userExplanation').style.borderWidth='3px'; setTimeout(function() { alert('Please tell us how you rated :)'); },10) return false; } return true; }");
+      out.println("function resetText() { document.getElementById('userExplanation').style.borderColor=''; document.getElementById('userExplanation').style.borderWidth=''; }");
+      out.println("</script>");
       out.println("</head>");
       out.println("");
    } // End PrintHead
