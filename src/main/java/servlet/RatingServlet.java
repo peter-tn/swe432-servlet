@@ -99,7 +99,7 @@ public class RatingServlet extends HttpServlet
       out.println("<h4 style='text-align:center;'>SWE 432 Peter Nguyen</h4>");
       out.println("</header>");
 
-      out.print  ("<form style='margin-left: 10px' method=\"post\" action=\"https://" + Path + "\" id='form' name='form'> onsubmit='return (checkForm())'");
+      out.print  ("<form style='margin-left: 10px' method=\"post\" action=\"https://" + Path + "\" id='form' name='form' onsubmit='return (checkForm())'>");
       out.println("<div class='row'>");
 
       out.println("<div class='column'>");
