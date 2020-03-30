@@ -109,9 +109,10 @@ public class RatingServlet extends HttpServlet
    private void PrintBody (PrintWriter out, String lhs, String rhs, String rslt)
    {
       out.println("<body>");
-      out.println("<h1>");
-      out.println("In-class participation assignment");
-      out.println("</h1>");
+      out.println("<header>");
+      out.println("<h1 style='text-align:center;''>Please Rate Our Pictures!:)</h1>");
+      out.println("<h4 style='text-align:center;'>SWE 432 Peter Nguyen</h4>");
+      out.println("</header>");
       out.println("<h5>");
       out.println("By Peter Nguyen!");
       out.println("</h5>");
