@@ -44,11 +44,11 @@ public class RatingServlet extends HttpServlet
       out.println("<title>HTML Assignment 6</title>");
       out.println("<header>");
       out.println("<h1 style='text-align:center;''>Results</h1>");
-      out.println("<p style='text-align: center;'> 1st picture rating: " + request.getParameter("1st picture rating") + "</p>");
-      out.println("<p style='text-align: center;'> 2nd picture rating: " + request.getParameter("2nd picture rating") + "</p>");
-      out.println("<p style='text-align: center;'> 3rd picture rating: " + request.getParameter("3rd picture rating") + "</p>");
-      out.println("<p style='text-align: center;'> 4th picture rating: " + request.getParameter("4th picture rating") + "</p>");
-      out.println("<p style='text-align: center;'> Your explanation: " + request.getParameter("userExplanation") + "</p>");
+      out.println("<p style='text-align: center;'> <b>1st picture rating:</b> " + request.getParameter("1st picture rating") + "</p>");
+      out.println("<p style='text-align: center;'> <b>2nd picture rating:</b> " + request.getParameter("2nd picture rating") + "</p>");
+      out.println("<p style='text-align: center;'> <b>3rd picture rating:</b> " + request.getParameter("3rd picture rating") + "</p>");
+      out.println("<p style='text-align: center;'> <b>4th picture rating:</b> " + request.getParameter("4th picture rating") + "</p>");
+      out.println("<p style='text-align: center;'> <b>Your explanation:</b> " + request.getParameter("userExplanation") + "</p>");
       out.println("</header>");
       out.println("</html>");
    }  // End doPost
