@@ -79,7 +79,7 @@ public class RatingServlet extends HttpServlet
       out.println(".row:after { content: ''; display: table; clear: both; }");
       out.println("</style>");
       out.println("<script type='text/javascript'>");
-      out.println("function checkForm() { if (document.form['1st picture rating'].value == '' || document.form['2nd picture rating'].value == '' || document.form['3rd picture rating'].value == '' || document.form['4th picture rating'].value == '') { alert('Please give all pictures a rating :)''); return false;} }");
+      out.println("function checkForm() { if (document.form['1st picture rating'].value == '' || document.form['2nd picture rating'].value == '' || document.form['3rd picture rating'].value == '' || document.form['4th picture rating'].value == '') { alert('Please give all pictures a rating :)'); return false;} }");
       out.println("function resetText() { document.getElementById('userExplanation').style.borderColor=''; document.getElementById('userExplanation').style.borderWidth=''; }");
       out.println("</script>");
       out.println("</head>");
