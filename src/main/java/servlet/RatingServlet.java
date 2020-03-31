@@ -18,15 +18,7 @@ import javax.servlet.http.HttpServletResponse;
 public class RatingServlet extends HttpServlet
 {
    // Location of servlet.
-   static String Path = "swe432-week8.herokuapp.com/rating";
-
-   // Button labels
-   static String OperationAdd = "Add";
-   static String OperationSub = "Subtract";
-   static String OperationMulti = "Multiply";
-
-   // Other strings.
-   static String Style ="https://www.cs.gmu.edu/~offutt/classes/432/432-style.css";
+   static String Path = "swe432-assignment.herokuapp.com/rating";
 
    /** *****************************************************
     *  Overrides HttpServlet's doPost().
