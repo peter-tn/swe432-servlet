@@ -44,6 +44,7 @@ public class RatingServlet extends HttpServlet
       out.println("<title>HTML Assignment 6</title>");
       out.println("<header>");
       out.println("<h1 style='text-align:center;''>Results</h1>");
+      out.println(request.getParameter("1st picture rating"));
       out.println("</header>");
       out.println("</html>");
    }  // End doPost
