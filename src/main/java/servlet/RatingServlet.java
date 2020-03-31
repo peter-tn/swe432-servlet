@@ -40,7 +40,7 @@ public class RatingServlet extends HttpServlet
       response.setContentType("text/html");
       PrintWriter out = response.getWriter();
 
-      out.println("<html>");
+      out.println("<html>"); 
       out.println("<title>HTML Assignment 6</title>");
       out.println("<header>");
       out.println("<h1 style='text-align:center;''>Results</h1>");
