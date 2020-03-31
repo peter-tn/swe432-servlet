@@ -48,6 +48,7 @@ public class RatingServlet extends HttpServlet
       out.println("<p> 2nd picture rating: " + request.getParameter("2nd picture rating") + "</p>");
       out.println("<p> 3rd picture rating: " + request.getParameter("3rd picture rating") + "</p>");
       out.println("<p> 4th picture rating: " + request.getParameter("4th picture rating") + "</p>");
+      out.println("<p> Your explanation: " + request.getParameter("userExplanation") + "</p>");
       out.println("</header>");
       out.println("</html>");
    }  // End doPost
