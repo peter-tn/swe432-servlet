@@ -29,20 +29,25 @@ public class RatingServlet extends HttpServlet
    public void doPost (HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException
    {
-      response.setContentType("text/html");
+      response.setContentType("application/json");
       PrintWriter out = response.getWriter();
 
-      out.println("<html>"); 
-      out.println("<title>HTML Assignment 6</title>");
-      out.println("<header>");
-      out.println("<h1 style='text-align:center;''>Results</h1>");
-      out.println("<p style='text-align: center;'> <b>1st picture rating:</b> " + request.getParameter("radio1") + "</p>");
-      out.println("<p style='text-align: center;'> <b>2nd picture rating:</b> " + request.getParameter("radio2") + "</p>");
-      out.println("<p style='text-align: center;'> <b>3rd picture rating:</b> " + request.getParameter("radio3") + "</p>");
-      out.println("<p style='text-align: center;'> <b>4th picture rating:</b> " + request.getParameter("radio4") + "</p>");
-      out.println("<p style='text-align: center;'> <b>Your explanation:</b> " + request.getParameter("userExplanation") + "</p>");
-      out.println("</header>");
-      out.println("</html>");
+      out.print("{'userId': 1,'id': 1}");
+      out.flush();
+      // response.setContentType("text/html");
+      // PrintWriter out = response.getWriter();
+
+      // out.println("<html>"); 
+      // out.println("<title>HTML Assignment 6</title>");
+      // out.println("<header>");
+      // out.println("<h1 style='text-align:center;''>Results</h1>");
+      // out.println("<p style='text-align: center;'> <b>1st picture rating:</b> " + request.getParameter("radio1") + "</p>");
+      // out.println("<p style='text-align: center;'> <b>2nd picture rating:</b> " + request.getParameter("radio2") + "</p>");
+      // out.println("<p style='text-align: center;'> <b>3rd picture rating:</b> " + request.getParameter("radio3") + "</p>");
+      // out.println("<p style='text-align: center;'> <b>4th picture rating:</b> " + request.getParameter("radio4") + "</p>");
+      // out.println("<p style='text-align: center;'> <b>Your explanation:</b> " + request.getParameter("userExplanation") + "</p>");
+      // out.println("</header>");
+      // out.println("</html>");
    }  // End doPost
 
    /** *****************************************************
@@ -52,14 +57,11 @@ public class RatingServlet extends HttpServlet
    public void doGet (HttpServletRequest request, HttpServletResponse response)
          throws ServletException, IOException
    {
-      response.setContentType("application/json");
+      response.setContentType("text/html");
       PrintWriter out = response.getWriter();
-
-      out.print("{'userId': 1,'id': 1}");
-      out.flush();
-      // PrintHead(out);
-      // PrintBody(out);
-      // PrintTail(out);
+      PrintHead(out);
+      PrintBody(out);
+      PrintTail(out);
    } // End doGet
 
    /** *****************************************************
