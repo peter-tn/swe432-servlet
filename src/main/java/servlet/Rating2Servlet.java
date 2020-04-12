@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 public class Rating2Servlet extends HttpServlet {
 
     // Location of servlet.
-    static String Path = "swe432-assignment.herokuapp.com/rating2";
+    static String Path = "swe432-servlets.herokuapp.com/rating2";
 
    /** *****************************************************
      *  Overrides HttpServlet's doPost().
