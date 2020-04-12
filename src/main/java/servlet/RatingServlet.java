@@ -31,18 +31,18 @@ public class RatingServlet extends HttpServlet
    {
       response.setContentType("text/html");
       PrintWriter out = response.getWriter();
-      response.sendRedirect("http://www.google.com");
-      // out.println("<html>"); 
-      // out.println("<title>HTML Assignment 6</title>");
-      // out.println("<header>");
-      // out.println("<h1 style='text-align:center;''>Results</h1>");
-      // out.println("<p style='text-align: center;'> <b>1st picture rating:</b> " + request.getParameter("radio1") + "</p>");
-      // out.println("<p style='text-align: center;'> <b>2nd picture rating:</b> " + request.getParameter("radio2") + "</p>");
-      // out.println("<p style='text-align: center;'> <b>3rd picture rating:</b> " + request.getParameter("radio3") + "</p>");
-      // out.println("<p style='text-align: center;'> <b>4th picture rating:</b> " + request.getParameter("radio4") + "</p>");
-      // out.println("<p style='text-align: center;'> <b>Your explanation:</b> " + request.getParameter("userExplanation") + "</p>");
-      // out.println("</header>");
-      // out.println("</html>");
+
+      out.println("<html>"); 
+      out.println("<title>HTML Assignment 6</title>");
+      out.println("<header>");
+      out.println("<h1 style='text-align:center;''>Results</h1>");
+      out.println("<p style='text-align: center;'> <b>1st picture rating:</b> " + request.getParameter("radio1") + "</p>");
+      out.println("<p style='text-align: center;'> <b>2nd picture rating:</b> " + request.getParameter("radio2") + "</p>");
+      out.println("<p style='text-align: center;'> <b>3rd picture rating:</b> " + request.getParameter("radio3") + "</p>");
+      out.println("<p style='text-align: center;'> <b>4th picture rating:</b> " + request.getParameter("radio4") + "</p>");
+      out.println("<p style='text-align: center;'> <b>Your explanation:</b> " + request.getParameter("userExplanation") + "</p>");
+      out.println("</header>");
+      out.println("</html>");
    }  // End doPost
 
    /** *****************************************************
