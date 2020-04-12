@@ -32,7 +32,7 @@ public class Rating2Servlet extends HttpServlet {
         String r3 = request.getParameter("radio3");
         String r4 = request.getParameter("radio4");
 
-        // response.sendRedirect("https://swe432-react-site.herokuapp.com/results/"+r1+"/"+r2+"/"+r3+"/"+r4);
+        response.sendRedirect("https://swe432-react-site.herokuapp.com/results/"+r1+"/"+r2+"/"+r3+"/"+r4);
     }
 
     /** *****************************************************
