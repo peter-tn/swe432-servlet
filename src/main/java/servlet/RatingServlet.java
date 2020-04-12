@@ -52,7 +52,7 @@ public class RatingServlet extends HttpServlet
    public void doGet (HttpServletRequest request, HttpServletResponse response)
          throws ServletException, IOException
    {
-      response.setContentType("application/JSON");
+      response.setContentType("application/json");
       PrintWriter out = response.getWriter();
 
       out.print("{'userId': 1,'id': 1}");
