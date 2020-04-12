@@ -27,7 +27,7 @@ public class Rating2Servlet extends HttpServlet {
     ********************************************************* */
     public void doPost (HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        response.setContentType("application/json");
+        response.setContentType("application/x-www-form-urlencoded");
         PrintWriter out = response.getWriter();
 
         out.print("{\"test\":\"5\"}");
