@@ -27,11 +27,12 @@ public class Rating2Servlet extends HttpServlet {
     ********************************************************* */
     public void doPost (HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        response.setContentType("application/x-www-form-urlencoded");
-        PrintWriter out = response.getWriter();
+        String r1 = request.getParameter("radio1");
+        String r2 = request.getParameter("radio2");
+        String r3 = request.getParameter("radio3");
+        String r4 = request.getParameter("radio4");
 
-        out.print("{\"test\":\"5\"}");
-        out.flush();
+        response.sendRedirect("https://swe432-react-site.herokuapp.com/results/"+r1+"/"+r2+"/"+r3+"/"+r4);
     }
 
     /** *****************************************************
