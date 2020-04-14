@@ -154,7 +154,7 @@ public class PersistentFileServlet extends HttpServlet{
       +"\" value=\""+name+"\" size=30 required></td>");
      out.println("  </tr>");
      out.println("  <tr>");
-     out.println("   <td>Name:</td>");
+     out.println("   <td>Nickname:</td>");
      out.println("   <td><input type=\"text\" name=\""+Data.NICKNAME.name()
       +"\" value=\""+nickname+"\" size=30 required></td>");
      out.println("  </tr>");
