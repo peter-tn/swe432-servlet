@@ -83,7 +83,7 @@ public class PersistentFileServlet extends HttpServlet{
 
      if (error.length() == 0){
        PrintWriter entriesPrintWriter = new PrintWriter(new FileWriter(RESOURCE_FILE, true), true);
-       entriesPrintWriter.println(name+VALUE_SEPARATOR+age);
+       entriesPrintWriter.println(name+VALUE_SEPARATOR+nickname+VALUE_SEPARATOR+age);
        entriesPrintWriter.close();
 
        PrintHead(out);
@@ -189,6 +189,7 @@ public class PersistentFileServlet extends HttpServlet{
     try {
         out.println("  <tr>");
         out.println("   <th>Name</th>");
+        out.println("   <th>Nickname</th>");
         out.println("   <th>Age</th>");
         out.println("  </tr>");
         File file = new File(resourcePath);
