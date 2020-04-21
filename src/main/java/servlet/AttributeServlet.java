@@ -65,7 +65,7 @@ public void doGet (HttpServletRequest request, HttpServletResponse response)
    out.println(" <input type=\"text\" size=\"10\" name=\"attrib_value\">");
 
    // invalidate session link
-   out.print  ("<br><br><a href=\"" + lifeCycleURL + "?action=invalidate\">");
+   out.print  ("<br><br><a href=\"" + url + "?action=invalidate\">");
    out.println("Invalidate the session</a>");
 
    out.println(" <br><input type=\"checkbox\" name=\"attrib_remove\">Remove");
