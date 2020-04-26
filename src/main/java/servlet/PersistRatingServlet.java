@@ -96,9 +96,10 @@ public class PersistRatingServlet extends HttpServlet{
   public void doGet (HttpServletRequest request, HttpServletResponse response)
          throws ServletException, IOException{ 
 
-    response.setContentType("text/html");
+    response.setContentType("application/json");
     PrintWriter out = response.getWriter();
 
-    out.println("doGet!");
+    out.print("{\"json-key\":\"json-value\"}");
+    out.flush();
   }
 }
