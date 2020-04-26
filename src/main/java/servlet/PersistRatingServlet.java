@@ -1,7 +1,4 @@
 package servlet;
-// Written by David Gonzalez, April 2020
-// Modified by Jeff Offutt
-// Built to deploy in github with Heroku
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -22,7 +19,7 @@ import javax.servlet.annotation.WebServlet;
 @WebServlet(name = "PersistRating", urlPatterns = {"/savedRatings"})
 public class PersistRatingServlet extends HttpServlet{
   static enum Data {AGE, NAME, NICKNAME};
-  static String RESOURCE_FILE = "entries.txt";
+  static String RESOURCE_FILE = "reviews.txt";
   static final String VALUE_SEPARATOR = ";";
 
   static String Domain  = "";
@@ -86,13 +83,8 @@ public class PersistRatingServlet extends HttpServlet{
        entriesPrintWriter.println(name+VALUE_SEPARATOR+nickname+VALUE_SEPARATOR+age);
        entriesPrintWriter.close();
 
-       PrintHead(out);
-       PrintResponseBody(out, RESOURCE_FILE);
-       PrintTail(out);
      }else{
-       PrintHead(out);
-       PrintBody(out, name, age, nickname, error);
-       PrintTail(out);
+
      }
   }
 
@@ -102,130 +94,11 @@ public class PersistRatingServlet extends HttpServlet{
   ********************************************************* */
   @Override
   public void doGet (HttpServletRequest request, HttpServletResponse response)
-         throws ServletException, IOException{
-     response.setContentType("text/html");
-     PrintWriter out = response.getWriter();
-     PrintHead(out);
-     PrintBody(out, "", "","", "");
-     PrintTail(out);
-  }
+         throws ServletException, IOException{ 
 
-  /** *****************************************************
-   *  Prints the <head> of the HTML page, no <body>.
-  ********************************************************* */
-  private void PrintHead (PrintWriter out){
-     out.println("<html>");
-     out.println("");
-     out.println("<head>");
-     out.println("<title>File Persistence Example</title>");
-     // Put the focus in the name field
-     out.println ("<script>");
-     out.println ("  function setFocus(){");
-     out.println ("    document.persist2file.NAME.focus();");
-     out.println ("  }");
-     out.println ("</script>");
-     out.println("</head>");
-     out.println("");
-  }
+    response.setContentType("text/html");
+    PrintWriter out = response.getWriter();
 
-  /** *****************************************************
-   *  Prints the <BODY> of the HTML page
-  ********************************************************* */
-  private void PrintBody (PrintWriter out, String name, String age, String nickname, String error){
-     out.println("<body onLoad=\"setFocus()\">");
-     out.println("<p>");
-     out.println("A simple example that demonstrates how to persist data to a file");
-     out.println("</p>");
-
-     if(error != null && error.length() > 0){
-       out.println("<p style=\"color:red;\">Please correct the following and resubmit.</p>");
-       out.println("<ol>");
-       out.println(error);
-       out.println("</ol>");
-     }
-
-     out.print  ("<form name=\"persist2file\" method=\"post\"");
-     out.println(" action=\""+Domain+Path+Servlet+"\">");
-     out.println("");
-     out.println(" <table>");
-     out.println("  <tr>");
-     out.println("   <td>Name:</td>");
-     out.println("   <td><input type=\"text\" name=\""+Data.NAME.name()
-      +"\" value=\""+name+"\" size=30 required></td>");
-     out.println("  </tr>");
-     out.println("  <tr>");
-     out.println("   <td>Nickname:</td>");
-     out.println("   <td><input type=\"text\" name=\""+Data.NICKNAME.name()
-      +"\" value=\""+nickname+"\" size=30 required></td>");
-     out.println("  </tr>");
-     out.println("  <tr>");
-     out.println("   <td>Age:</td>");
-     out.println("   <td><input type=\"text\"  name=\""+Data.AGE.name()
-      +"\" oninput=\"this.value=this.value.replace(/[^0-9]/g,'');\" value=\""
-      +age+"\" size=3 required></td>");
-     out.println("  </tr>");
-     out.println(" </table>");
-     out.println(" <br>");
-     out.println(" <br>");
-     out.println(" <input type=\"submit\" value=\"" + OperationAdd
-      + "\" name=\"Operation\">");
-     out.println(" <input type=\"reset\" value=\"Reset\" name=\"reset\">");
-     out.println("</form>");
-     out.println("");
-     out.println("</body>");
-  }
-
-  /** *****************************************************
-   *  Prints the <BODY> of the HTML page
-  ********************************************************* */
-  private void PrintResponseBody (PrintWriter out, String resourcePath){
-    out.println("<body onLoad=\"setFocus()\">");
-    out.println("<p>");
-    out.println("A simple example that demonstrates how to persist data to a file");
-    out.println("</p>");
-    out.println("");
-    out.println(" <table>");
-
-    try {
-        out.println("  <tr>");
-        out.println("   <th>Name</th>");
-        out.println("   <th>Nickname</th>");
-        out.println("   <th>Age</th>");
-        out.println("  </tr>");
-        File file = new File(resourcePath);
-        if(!file.exists()){
-          out.println("  <tr>");
-          out.println("   <td>No entries persisted yet.</td>");
-          out.println("  </tr>");
-          return;
-        }
-
-        BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
-        String line;
-        while ((line = bufferedReader.readLine()) != null) {
-          String []  entry= line.split(VALUE_SEPARATOR);
-          out.println("  <tr>");
-          for(String value: entry){
-              out.println("   <td>"+value+"</td>");
-          }
-          out.println("  </tr>");
-        }
-        bufferedReader.close();
-      } catch (FileNotFoundException ex) {
-            ex.printStackTrace();
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
-     out.println(" </table>");
-     out.println("");
-     out.println("</body>");
-  }
-
-  /** *****************************************************
-   *  Prints the bottom of the HTML page.
-  ********************************************************* */
-  private void PrintTail (PrintWriter out){
-     out.println("");
-     out.println("</html>");
+    out.println("doGet!");
   }
 }
