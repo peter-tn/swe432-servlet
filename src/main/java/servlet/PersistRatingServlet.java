@@ -67,6 +67,7 @@ public class PersistRatingServlet extends HttpServlet{
     PrintWriter out = response.getWriter();
 
     out.print("{\"json-key\":\"json-value\"}");
+    printResponseBody(out, RESOURCE_FILE);
     out.flush();
   }
 
