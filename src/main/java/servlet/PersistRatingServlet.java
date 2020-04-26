@@ -52,7 +52,7 @@ public class PersistRatingServlet extends HttpServlet{
       entriesPrintWriter.println(r1+VALUE_SEPARATOR+r2+VALUE_SEPARATOR+r3+VALUE_SEPARATOR+r4);
       entriesPrintWriter.close();
 
-      response.sendRedirect("https://swe432-react-site.herokuapp.com/savedRatings");
+      response.sendRedirect("https://swe432-servlets.herokuapp.com/savedRatings");
   }
 
   /** *****************************************************
