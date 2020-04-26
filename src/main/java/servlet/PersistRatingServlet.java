@@ -39,53 +39,19 @@ public class PersistRatingServlet extends HttpServlet{
   ********************************************************* */
   @Override
   public void doPost (HttpServletRequest request, HttpServletResponse response)
-     throws ServletException, IOException
-  {
-     String name = request.getParameter(Data.NAME.name());
-     String nickname = request.getParameter(Data.NICKNAME.name());
-     String age = request.getParameter(Data.AGE.name());
+     throws ServletException, IOException {
+      String r1 = request.getParameter("radio1");
+      String r2 = request.getParameter("radio2");
+      String r3 = request.getParameter("radio3");
+      String r4 = request.getParameter("radio4");
 
-     String error = "";
-     if(name == null){
-       error= "<li>Name is required</li>";
-       name = "";
-     }
-     if(nickname == null){
-      error= "<li>Nickname is required</li>";
-      name = "";
-    }
-     if(age == null){
-       error+= "<li>Age is required.<li>";
-       age = "";
-     }else{
-          try{
-            Integer ageInteger =new Integer(age);
-            if(ageInteger<1){
-                error+= "<li>Age must be an integer greater than 0.</li>";
-                age = "";
-            }else{
-              if(ageInteger>150){
-                  error+= "<li>Age must be an integer less than 150.</li>";
-                  age = "";
-              }
-            }
-          }catch (Exception e) {
-            error+= "<li>Age must be an integer greater than 0.</li>";
-            age = "";
-          }
-     }
+      response.setContentType("text/html");
+      PrintWriter out = response.getWriter();
 
-     response.setContentType("text/html");
-     PrintWriter out = response.getWriter();
-
-     if (error.length() == 0){
-       PrintWriter entriesPrintWriter = new PrintWriter(new FileWriter(RESOURCE_FILE, true), true);
-       entriesPrintWriter.println(name+VALUE_SEPARATOR+nickname+VALUE_SEPARATOR+age);
-       entriesPrintWriter.close();
-
-     }else{
-
-     }
+      out.println(r1);
+      out.println(r2);
+      out.println(r3);
+      out.println(r4);
   }
 
   /** *****************************************************
