@@ -45,13 +45,14 @@ public class PersistRatingServlet extends HttpServlet{
       String r3 = request.getParameter("radio3");
       String r4 = request.getParameter("radio4");
 
-      response.setContentType("text/html");
-      PrintWriter out = response.getWriter();
+      // response.setContentType("text/html");
+      // PrintWriter out = response.getWriter();
 
-      out.println("<p>"+ r1 + "</p>");
-      out.println("<p>"+ r2 + "</p>");
-      out.println("<p>"+ r3 + "</p>");
-      out.println("<p>"+ r4 + "</p>");
+      PrintWriter entriesPrintWriter = new PrintWriter(new FileWriter(RESOURCE_FILE, true), true);
+      entriesPrintWriter.println(r1+VALUE_SEPARATOR+r2+VALUE_SEPARATOR+r3+VALUE_SEPARATOR+r4);
+      entriesPrintWriter.close();
+
+      response.sendRedirect("https://swe432-react-site.herokuapp.com/savedRatings");
   }
 
   /** *****************************************************
@@ -67,5 +68,35 @@ public class PersistRatingServlet extends HttpServlet{
 
     out.print("{\"json-key\":\"json-value\"}");
     out.flush();
+  }
+
+  private void printResponseBody(PrintWriter out, String resourcePath) {
+    out.println("<table>");
+    try {
+      File file = new File(resourcePath);
+      if(!file.exists()){
+        out.println("  <tr>");
+        out.println("   <td>No entries persisted yet.</td>");
+        out.println("  </tr>");
+        return;
+      }
+
+      BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
+      String line;
+      while ((line = bufferedReader.readLine()) != null) {
+        String []  entry= line.split(VALUE_SEPARATOR);
+        out.println("  <tr>");
+        for(String value: entry){
+            out.println("   <td>"+value+"</td>");
+        }
+        out.println("  </tr>");
+      }
+      bufferedReader.close();
+    } catch (FileNotFoundException ex) {
+          ex.printStackTrace();
+    } catch (IOException ex) {
+        ex.printStackTrace();
+    }
+    out.println("</table>");
   }
 }
