@@ -48,10 +48,10 @@ public class PersistRatingServlet extends HttpServlet{
       response.setContentType("text/html");
       PrintWriter out = response.getWriter();
 
-      out.println(r1);
-      out.println(r2);
-      out.println(r3);
-      out.println(r4);
+      out.println("<p>"+ r1 + "</p>");
+      out.println("<p>"+ r2 + "</p>");
+      out.println("<p>"+ r3 + "</p>");
+      out.println("<p>"+ r4 + "</p>");
   }
 
   /** *****************************************************
