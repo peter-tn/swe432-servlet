@@ -27,7 +27,7 @@ public class PersistRatingServlet extends HttpServlet{
 
   static String Domain  = "";
   static String Path    = "/";
-  static String Servlet = "file";
+  static String Servlet = "savedRatings";
 
   // Button labels
   static String OperationAdd = "Add";
