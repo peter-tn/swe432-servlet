@@ -90,7 +90,7 @@ public class PersistRatingServlet extends HttpServlet{
         int i = 1;
         out.println("{\"review\":[");
         for(String value: entry){
-            out.println("{\"rating" + i + "\":\"" + value + "\"}");
+            out.println("{\"rating" + i + "\":\"" + value + "\"},");
         }
         out.println("]}");
       }
