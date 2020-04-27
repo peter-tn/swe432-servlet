@@ -63,8 +63,12 @@ public class PersistRatingServlet extends HttpServlet{
   public void doGet (HttpServletRequest request, HttpServletResponse response)
          throws ServletException, IOException{ 
 
-    response.setContentType("application/json");
+    // response.setContentType("application/json");
+    // PrintWriter out = response.getWriter();
+
+    response.setContentType("text/xml;charset=UTF-8");
     PrintWriter out = response.getWriter();
+    out.append("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
 
     // out.print("{\"json-key\":\"json-value\"}");
     printResponseBody(out, RESOURCE_FILE);
@@ -87,14 +91,12 @@ public class PersistRatingServlet extends HttpServlet{
       String line;
       while ((line = bufferedReader.readLine()) != null) {
         String []  entry = line.split(VALUE_SEPARATOR);
-        out.println("{\"review\":[");
+        out.println("<reviews>");
         for(int k = 0; k < entry.length; k++){
             String value = entry[k];
-            out.println("{\"rating" + (k+1) + "\":\"" + value + "\"}");
-            if(k < entry.length-1)
-              out.println(",");
+            out.println("<rating><number>" + (k+1) + "</number>\n<value>" + value + "</value></rating>");
         }
-        out.println("]}");
+        out.println("</reviews>");
       }
       bufferedReader.close();
     } catch (FileNotFoundException ex) {
