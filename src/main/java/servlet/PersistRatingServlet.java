@@ -66,19 +66,20 @@ public class PersistRatingServlet extends HttpServlet{
     response.setContentType("application/json");
     PrintWriter out = response.getWriter();
 
-    out.print("{\"json-key\":\"json-value\"}");
-    // printResponseBody(out, RESOURCE_FILE);
+    // out.print("{\"json-key\":\"json-value\"}");
+    printResponseBody(out, RESOURCE_FILE);
     out.flush();
   }
 
   private void printResponseBody(PrintWriter out, String resourcePath) {
-    out.println("<table>");
     try {
       File file = new File(resourcePath);
       if(!file.exists()){
+        out.println("<table>");
         out.println("  <tr>");
         out.println("   <td>No entries persisted yet.</td>");
         out.println("  </tr>");
+        out.println("</table>");
         return;
       }
 
@@ -86,11 +87,12 @@ public class PersistRatingServlet extends HttpServlet{
       String line;
       while ((line = bufferedReader.readLine()) != null) {
         String []  entry= line.split(VALUE_SEPARATOR);
-        out.println("  <tr>");
+        int i = 1;
+        out.println("{\"review\":");
         for(String value: entry){
-            out.println("   <td>"+value+"</td>");
+            out.println("{\"rating" + i + "\":\"" + value + "\"}");
         }
-        out.println("  </tr>");
+        out.println("}");
       }
       bufferedReader.close();
     } catch (FileNotFoundException ex) {
@@ -98,6 +100,5 @@ public class PersistRatingServlet extends HttpServlet{
     } catch (IOException ex) {
         ex.printStackTrace();
     }
-    out.println("</table>");
   }
 }
