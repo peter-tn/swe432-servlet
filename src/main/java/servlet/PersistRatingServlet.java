@@ -88,11 +88,11 @@ public class PersistRatingServlet extends HttpServlet{
       while ((line = bufferedReader.readLine()) != null) {
         String []  entry= line.split(VALUE_SEPARATOR);
         int i = 1;
-        out.println("{\"review\":");
+        out.println("{\"review\":[");
         for(String value: entry){
             out.println("{\"rating" + i + "\":\"" + value + "\"}");
         }
-        out.println("}");
+        out.println("]}");
       }
       bufferedReader.close();
     } catch (FileNotFoundException ex) {
