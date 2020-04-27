@@ -86,11 +86,14 @@ public class PersistRatingServlet extends HttpServlet{
       BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
       String line;
       while ((line = bufferedReader.readLine()) != null) {
-        String []  entry= line.split(VALUE_SEPARATOR);
+        String []  entry = line.split(VALUE_SEPARATOR);
         int i = 1;
         out.println("{\"review\":[");
-        for(String value: entry){
-            out.println("{\"rating" + i + "\":\"" + value + "\"},");
+        for(int k = 0; k < entry.length; k++){
+            String value = entry[k];
+            out.println("{\"rating" + i + "\":\"" + value + "\"}");
+            if(k < entry.length-1)
+              out.println(",");
         }
         out.println("]}");
       }
