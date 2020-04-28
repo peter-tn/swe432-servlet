@@ -89,15 +89,17 @@ public class PersistRatingServlet extends HttpServlet{
 
       BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
       String line;
+      out.println("<reviews>");
       while ((line = bufferedReader.readLine()) != null) {
         String []  entry = line.split(VALUE_SEPARATOR);
-        out.println("<reviews>");
+        out.println("<review>");
         for(int k = 0; k < entry.length; k++){
             String value = entry[k];
             out.println("<rating><number>" + (k+1) + "</number>\n<value>" + value + "</value></rating>");
         }
-        out.println("</reviews>");
+        out.println("</review>");
       }
+      out.println("</reviews>");
       bufferedReader.close();
     } catch (FileNotFoundException ex) {
           ex.printStackTrace();
