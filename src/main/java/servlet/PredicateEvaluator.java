@@ -31,11 +31,12 @@ public class PredicateEvaluator extends HttpServlet
    {
       response.setContentType("text/html");
       PrintWriter out = response.getWriter();
+      String input = request.getParameter("input");
 
       out.println("<html>"); 
       out.println("<title>Test</title>");
       out.println("<header>");
-      out.println("Hello World");
+      out.println("input: " + input);
       out.println("</header>");
       out.println("</html>");
    }  // End doPost
@@ -49,7 +50,7 @@ public class PredicateEvaluator extends HttpServlet
    {
       response.setContentType("text/html");
       PrintWriter out = response.getWriter();
-      
+
       out.println("<html>"); 
       out.println("<title>Test</title>");
       out.println("<header>");
