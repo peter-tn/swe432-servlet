@@ -91,9 +91,24 @@ public class PredicateEvaluator extends HttpServlet
          int[] a = new int[N];
          for (int i=0; i<N; i++){
             a[i] = truthVals[i];
-            out.println(a[i]);
+            out.println(a[i] + " ");
          }
          
+         int i = 0;
+         boolean r = true;
+         if(ops[0] == "and")
+            r = (a[0]>=1) && (a[1]>=1);
+         else
+            r = (a[0]>=1) || (a[1]>=1);
+
+         for(int k=1; k < a.length/2; k++) {
+            if(ops[i] == "and")
+               r = r && (a[k]>=1);
+            else
+               r = r || (a[k]>=1);
+         }
+
+         out.println(" Result: " + r);
          out.println("</br>");
       } else {
          for (int i=0; i<2; i++) {
