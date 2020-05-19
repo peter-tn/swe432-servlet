@@ -57,6 +57,12 @@ public class PredicateEvaluator extends HttpServlet
          out.println("  * " + a[k]);
          out.println("</br>");
       }
+      out.println("</br>");
+      for(int k = 0; k < b.length; k++) {
+         out.println("  * " + b[k]);
+         out.println("</br>");
+      }
+      out.println("</br>");
       for(int k = 0; k < ops.length; k++) {
          out.println("  * " + ops[k]);
          out.println("</br>");
