@@ -32,6 +32,7 @@ public class PredicateEvaluator extends HttpServlet
       response.setContentType("text/html");
       PrintWriter out = response.getWriter();
       String input = request.getParameter("input");
+      String printType = request.getParameter("radio1");
       String[] logOps ={"and", "or"};
 
       // make to lowercase
@@ -63,7 +64,7 @@ public class PredicateEvaluator extends HttpServlet
          out.println("</br>");
       }
       int[] tVals = new int [a.length];
-      printTruthTable(out, a.length, 0, tVals, ops);
+      printTruthTable(out, a.length, 0, tVals, ops, printType);
       out.println("</header>");
       out.println("</html>");
    }  // End doPost
@@ -86,32 +87,38 @@ public class PredicateEvaluator extends HttpServlet
       out.println("</html>");
    } // End doGet
    
-   private void printTruthTable(PrintWriter out, int N, int index, int[] truthVals, String ops[]) {
+   private void printTruthTable(PrintWriter out, int N, int index, int[] truthVals, String ops[], String printType) {
       if (index == N) {
+
+         // prints out truth table values
          int[] a = new int[N];
          for (int i=0; i<N; i++){
             a[i] = truthVals[i];
-            out.println(a[i] + " ");
+            if(printType.equals("1-0"))
+               out.println(a[i] + " ");
+            if(printType.equals("t-f")) {
+               String s = (a[i]<1) ? "t" : "f";
+               out.println(s + " ");
+            }
          }
          
+         // evaluator for each row
          int i = 0;
          boolean r = (a[0]>=1) && (a[1]>=1);;
          if(ops[i++].equals("or"))
             r = (a[0]>=1) || (a[1]>=1);
-
          for(int k=2; k < a.length; k++) {
             boolean temp = r && (a[k]>=1);
             if(ops[i++].equals("or"))
                temp = r || (a[k]>=1);
             r = temp;
          }
-
          out.println(" Result: " + r);
          out.println("</br>");
       } else {
          for (int i=0; i<2; i++) {
             truthVals[index] = i;
-            printTruthTable(out, N, index + 1, truthVals, ops);
+            printTruthTable(out, N, index + 1, truthVals, ops, printType);
          }
       }
    }
