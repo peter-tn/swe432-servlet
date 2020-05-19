@@ -99,7 +99,7 @@ public class PredicateEvaluator extends HttpServlet
          if(ops[0].equals("or"))
             r = (a[0]>=1) || (a[1]>=1);
 
-         for(int k=1 ; k < a.length; k++) {
+         for(int k=2; k < a.length; k++) {
             boolean temp = r && (a[k]>=1);
             if(ops[i].equals("or"))
                temp = r || (a[k]>=1);
