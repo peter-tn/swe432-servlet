@@ -38,6 +38,15 @@ public class PredicateEvaluator extends HttpServlet
       input = input.toLowerCase();
       
       String[] a = input.split("and|or");
+      String[] b = input.split(" ");
+      String[] ops = new String[b.length - a.length];
+
+      for(int k = 0, i = 0; k < b.length; k++) {
+         if(k % 2 != 0) {
+            ops[i] = b[i];
+            i++;
+         }
+      }
 
       out.println("<html>"); 
       out.println("<title>Test</title>");
@@ -48,6 +57,10 @@ public class PredicateEvaluator extends HttpServlet
          out.println("  * " + a[k]);
          out.println("</br>");
       }
+      for(int k = 0; k < b.length; k++) {
+         out.println("  * " + b[k]);
+         out.println("</br>");
+      
       int[] tVals = new int [a.length];
       printTruthTable(out, a.length, 0, tVals);
       out.println("</header>");
@@ -74,8 +87,12 @@ public class PredicateEvaluator extends HttpServlet
    
    private void printTruthTable(PrintWriter out, int N, int index, int[] truthVals) {
       if (index == N) {
-         for (int i=0; i<N; i++)
-            out.println(truthVals[i] + " ");
+         int[] a = new int[N];
+         for (int i=0; i<N; i++){
+            a[i] = truthVals[i];
+            out.println(a[i]);
+         }
+         
          out.println("</br>");
       } else {
          for (int i=0; i<2; i++) {
