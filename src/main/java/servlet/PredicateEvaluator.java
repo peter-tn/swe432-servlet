@@ -42,7 +42,7 @@ public class PredicateEvaluator extends HttpServlet
       String[] ops = new String[b.length - a.length];
 
       for(int k = 0, i = 0; k < b.length; k++) {
-         if(k % 2 != 0) {
+         if(k != 0 && k % 2 != 0 && i >= ops.length) {
             ops[i] = b[i];
             i++;
          }
