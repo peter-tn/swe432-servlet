@@ -43,7 +43,7 @@ public class PredicateEvaluator extends HttpServlet
 
       for(int k = 0, i = 0; k < b.length; k++) {
          if(k != 0 && k % 2 != 0 && i < ops.length) {
-            ops[i] = b[i];
+            ops[i] = b[k];
             i++;
          }
       }
@@ -55,11 +55,6 @@ public class PredicateEvaluator extends HttpServlet
       out.println("</br>");
       for(int k = 0; k < a.length; k++) {
          out.println("  * " + a[k]);
-         out.println("</br>");
-      }
-      out.println("</br>");
-      for(int k = 0; k < b.length; k++) {
-         out.println("  * " + b[k]);
          out.println("</br>");
       }
       out.println("</br>");
