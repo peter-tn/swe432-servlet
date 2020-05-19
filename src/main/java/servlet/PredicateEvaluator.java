@@ -54,15 +54,6 @@ public class PredicateEvaluator extends HttpServlet
       out.println("<header>");
       out.println("input: " + input);
       out.println("</br>");
-      for(int k = 0; k < a.length; k++) {
-         out.println("  * " + a[k]);
-         out.println("</br>");
-      }
-      out.println("</br>");
-      for(int k = 0; k < ops.length; k++) {
-         out.println("  * " + ops[k]);
-         out.println("</br>");
-      }
       int[] tVals = new int [a.length];
       printTruthTable(out, a.length, 0, tVals, ops, printType);
       out.println("</header>");
@@ -113,7 +104,7 @@ public class PredicateEvaluator extends HttpServlet
                temp = r || (a[k]>=1);
             r = temp;
          }
-         out.println(" Result: " + r);
+         out.println("        Result: " + r);
          out.println("</br>");
       } else {
          for (int i=0; i<2; i++) {
