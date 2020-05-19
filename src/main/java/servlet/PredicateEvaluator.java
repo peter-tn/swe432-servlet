@@ -32,11 +32,17 @@ public class PredicateEvaluator extends HttpServlet
       response.setContentType("text/html");
       PrintWriter out = response.getWriter();
       String input = request.getParameter("input");
+      String[] logOps ={"and", "or"};
+
+      // make to lowercase
+      input = input.toLowerCase();
+      
+      String[] a = input.split("and|or");
 
       out.println("<html>"); 
       out.println("<title>Test</title>");
       out.println("<header>");
-      out.println("input: " + input);
+      out.println("split: " + a);
       out.println("</header>");
       out.println("</html>");
    }  // End doPost
