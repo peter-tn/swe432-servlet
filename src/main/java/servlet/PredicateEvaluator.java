@@ -42,7 +42,7 @@ public class PredicateEvaluator extends HttpServlet
       String[] ops = new String[b.length - a.length];
 
       for(int k = 0, i = 0; k < b.length; k++) {
-         if(k != 0 && k % 2 != 0 && i >= ops.length) {
+         if(k != 0 && k % 2 != 0 && i < ops.length) {
             ops[i] = b[i];
             i++;
          }
@@ -62,7 +62,7 @@ public class PredicateEvaluator extends HttpServlet
          out.println("</br>");
       }
       int[] tVals = new int [a.length];
-      printTruthTable(out, a.length, 0, tVals);
+      printTruthTable(out, a.length, 0, tVals, ops);
       out.println("</header>");
       out.println("</html>");
    }  // End doPost
@@ -85,7 +85,7 @@ public class PredicateEvaluator extends HttpServlet
       out.println("</html>");
    } // End doGet
    
-   private void printTruthTable(PrintWriter out, int N, int index, int[] truthVals) {
+   private void printTruthTable(PrintWriter out, int N, int index, int[] truthVals, String ops[]) {
       if (index == N) {
          int[] a = new int[N];
          for (int i=0; i<N; i++){
@@ -97,7 +97,7 @@ public class PredicateEvaluator extends HttpServlet
       } else {
          for (int i=0; i<2; i++) {
             truthVals[index] = i;
-            printTruthTable(out, N, index + 1, truthVals);
+            printTruthTable(out, N, index + 1, truthVals, ops);
          }
       }
    }
