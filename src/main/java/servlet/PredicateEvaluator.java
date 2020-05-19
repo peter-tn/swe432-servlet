@@ -60,7 +60,7 @@ public class PredicateEvaluator extends HttpServlet
       for(int k = 0; k < b.length; k++) {
          out.println("  * " + b[k]);
          out.println("</br>");
-      
+      }
       int[] tVals = new int [a.length];
       printTruthTable(out, a.length, 0, tVals);
       out.println("</header>");
