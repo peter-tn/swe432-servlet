@@ -42,7 +42,10 @@ public class PredicateEvaluator extends HttpServlet
       out.println("<html>"); 
       out.println("<title>Test</title>");
       out.println("<header>");
-      out.println("split: " + a);
+      out.println("input: " + input);
+      for(int k = 0; k < a.length; k++) {
+         out.println("split: " + a[k]);
+      }
       out.println("</header>");
       out.println("</html>");
    }  // End doPost
