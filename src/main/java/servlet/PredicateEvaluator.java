@@ -46,5 +46,15 @@ public class PredicateEvaluator extends HttpServlet
    ********************************************************* */
    public void doGet (HttpServletRequest request, HttpServletResponse response)
          throws ServletException, IOException
-   {} // End doGet
+   {
+      response.setContentType("text/html");
+      PrintWriter out = response.getWriter();
+      
+      out.println("<html>"); 
+      out.println("<title>Test</title>");
+      out.println("<header>");
+      out.println("Hello World");
+      out.println("</header>");
+      out.println("</html>");
+   } // End doGet
 }
