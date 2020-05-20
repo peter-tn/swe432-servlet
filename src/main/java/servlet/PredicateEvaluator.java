@@ -39,13 +39,12 @@ public class PredicateEvaluator extends HttpServlet
       input = input.toLowerCase();
       
       String[] a = input.split("and|or");
-      String[] b = input.split(" ");
-      String[] ops = new String[b.length - a.length];
+      String[] arrInput = input.split(" ");
+      String[] ops = new String[arrInput.length - a.length];
 
-      for(int k = 0, i = 0; k < b.length; k++) {
+      for(int k = 0, i = 0; k < arrInput.length; k++) {
          if(k != 0 && k % 2 != 0 && i < ops.length) {
-            ops[i] = b[k];
-            i++;
+            ops[i++] = arrInput[k];
          }
       }
 
@@ -54,8 +53,15 @@ public class PredicateEvaluator extends HttpServlet
       out.println("<header>");
       out.println("input: " + input);
       out.println("</br>");
-      int[] tVals = new int [a.length];
-      printTruthTable(out, a.length, 0, tVals, ops, printType);
+      if(ops.length != arrInput.length) {
+         out.println("Invalid input :(");  
+         out.println("</br>");
+         out.println("Please check if there's a logical operator BETWEEN EACH clause");  
+      }
+      else {
+         int[] tVals = new int [a.length];
+         printTruthTable(out, a.length, 0, tVals, ops, printType);
+      }
       out.println("</header>");
       out.println("</html>");
    }  // End doPost
