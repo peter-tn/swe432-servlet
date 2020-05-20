@@ -53,7 +53,7 @@ public class PredicateEvaluator extends HttpServlet
       out.println("<header>");
       out.println("input: " + input);
       out.println("</br>");
-      if(ops.length != arrInput.length-1) {
+      if(ops.length != a.length-1) {
          out.println("Invalid input :(");  
          out.println("</br>");
          out.println("Please check if there's a logical operator BETWEEN EACH clause");  
