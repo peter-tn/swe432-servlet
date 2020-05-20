@@ -56,7 +56,9 @@ public class PredicateEvaluator extends HttpServlet
       if(ops.length != a.length-1) {
          out.println("Invalid input :(");  
          out.println("</br>");
-         out.println("Please check if there's a logical operator BETWEEN EACH clause");  
+         out.println("Please check if there's a logical operator BETWEEN EACH clause");
+         out.println("</br>");
+         out.println("We don't support multi-word objects right now like \"Saucy Pizza\" :(");  
       }
       else {
          int[] tVals = new int [a.length];
