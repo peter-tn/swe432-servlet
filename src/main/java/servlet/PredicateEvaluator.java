@@ -96,7 +96,7 @@ public class PredicateEvaluator extends HttpServlet
             if(printType.equals("1-0"))
                out.println(a[i] + " ");
             if(printType.equals("t-f")) {
-               String s = (a[i]<1) ? "t" : "f";
+               String s = (a[i]>=1) ? "t" : "f";
                out.println(s + " ");
             }
          }
